@@ -1,0 +1,92 @@
+# Default values for all-in-one-alpine.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+rollout:
+  enabled: false
+external_secret:
+  enabled: false
+  secretStoreRef:
+    name: vault-fabryk-apps
+    kind: ClusterSecretStore
+  vault_path: demo-numweek/api/dev
+
+replicaCount: 1
+targetNamepace: demo
+image:
+  repository: docker.io/ixxel/toolbox
+  #repository: jfrog.fredcorp.com/docker-prod-virtual/all-in-one
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "aio-v1.0.0"
+imagePullSecrets:
+  - name: harbor-fredcorp
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: "all-in-one"
+podAnnotations: {}
+podSecurityContext: {}
+# fsGroup: 2000
+
+secret:
+  name: all-in-one-secret
+  username: ""
+  password: ""
+securityContext: {}
+# capabilities:
+#   drop:
+#   - ALL
+# readOnlyRootFilesystem: true
+# runAsNonRoot: true
+# runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+istio:
+  virtualservice:
+    enabled: false
+  gateway: istio-system/tls-redirect
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+resources: {}
+# We usually recommend not to specify default resources and to leave this as a conscious
+# choice for the user. This also increases chances charts run on environments with little
+# resources, such as Minikube. If you do want to specify resources, uncomment the following
+# lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+# limits:
+#   cpu: 100m
+#   memory: 128Mi
+# requests:
+#   cpu: 100m
+#   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+nodeSelector: {}
+tolerations: []
+affinity: {}
