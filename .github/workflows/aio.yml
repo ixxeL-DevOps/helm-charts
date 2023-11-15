@@ -20,8 +20,9 @@ jobs:
     uses: ixxeL-DevOps/gha-templates/.github/workflows/helm-build.yaml@main
     with:
       workingdir: aio
+      auto-update-chart: "true"
+      auto-tag-repo: "true"
       helm-values-file-test: values.yaml
     secrets:
       GHA_TOKEN: ${{ secrets.GHA_TOKEN }}
       CHARTMUSEUM_PASSWORD: ${{ secrets.CHARTMUSEUM_PASSWORD }}
-
