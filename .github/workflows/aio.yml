@@ -24,5 +24,6 @@ jobs:
       auto-tag-repo: "true"
       helm-values-file-test: values.yaml
     secrets:
-      GHA_TOKEN: ${{ secrets.GHA_TOKEN }}
+      GHA_TOKEN: ${{ secrets.PAT }}
+      GHA_PERSONNAL_ADMIN_TOKEN: ${{ secrets.PAT }}
       CHARTMUSEUM_PASSWORD: ${{ secrets.CHARTMUSEUM_PASSWORD }}
