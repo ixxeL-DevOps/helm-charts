@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 rollout:
-  enabled: false
+  enabled: false 
 external_secret:
   enabled: false
   secretStoreRef:
