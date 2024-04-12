@@ -1,11 +1,11 @@
 ---
-name: Helm AIO build
+name: Helm demo-web build
 on:
   push:
     branches:
       - "main"
     paths:
-      - "aio/**"
+      - "demo-web/**"
   pull_request:
     types:
       - opened
@@ -14,13 +14,13 @@ on:
     branches:
       - "main"
     paths:
-      - "aio/**"
+      - "demo-web/**"
   workflow_dispatch:
 jobs:
-  aio-helm-build:
+  demo-web-helm-build:
     uses: ixxeL-DevOps/gha-templates/.github/workflows/helm-build.yaml@main
     with:
-      workingdir: aio
+      workingdir: demo-web
       auto-update-chart: "true"
       auto-tag-repo: "true"
       helm-values-file-test: values.yaml
