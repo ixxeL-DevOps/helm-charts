@@ -1,6 +1,6 @@
 # demo-web
 
-![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
+![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -10,7 +10,7 @@ A Helm chart for Kubernetes
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | automountServiceAccountToken | bool | `false` |  |
-| autoscaling.enabled | bool | `true` |  |
+| autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `5` |  |
 | autoscaling.minReplicas | int | `2` |  |
 | autoscaling.scaleDownPolicies[0].periodSeconds | int | `60` |  |
