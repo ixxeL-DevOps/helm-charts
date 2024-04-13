@@ -22,7 +22,9 @@ spec:
   strategy:
     {{- trim . | nindent 4 }}
   {{- end }}
-  {{- if not .Values.autoscaling.enabled }}
+  {{- if .Values.rollouts.enabled }}
+  replicas: 0
+  {{- else if not .Values.autoscaling.enabled }}
   replicas: {{ default 1 .Values.replicaCount }}
   {{- end }}
   revisionHistoryLimit: {{ default 10 .Values.global.revisionHistoryLimit }}
