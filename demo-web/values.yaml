@@ -109,7 +109,7 @@ service:
   sessionAffinity: ""
 
 ingress:
-  enabled: true
+  enabled: false
   className: "nginx"
   annotations: {}
     # kubernetes.io/ingress.class: nginx
@@ -123,6 +123,19 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+gatewayApi:
+  enabled: false
+  annotations: {}
+  gateway:
+    name: ""
+    namespace: ""
+    section: ""
+  httpRoute:
+    hosts:
+    - example.com
+    pathType: PathPrefix
+    path: /
 
 startupProbe:
   enabled: false
