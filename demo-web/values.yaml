@@ -108,6 +108,9 @@ service:
   externalTrafficPolicy: ""
   sessionAffinity: ""
 
+rollouts:
+  enabled: false
+
 ingress:
   enabled: false
   className: "nginx"
