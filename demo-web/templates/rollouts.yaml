@@ -6,7 +6,9 @@ metadata:
   namespace: {{ .Release.Namespace | quote }}
   labels: {{- include "common.labels.standard" (dict "customLabels" .Values.commonLabels "context" $ ) | nindent 4 }}
 spec:
+  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ default 1 .Values.replicaCount }}
+  {{- end }}
   analysis:
     successfulRunHistoryLimit: 10
     unsuccessfulRunHistoryLimit: 10
