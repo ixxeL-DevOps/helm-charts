@@ -17,6 +17,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: {{ include "demo-web.fullname" . }}
+    scaleDown: {{ .Values.rollouts.workloadRef.scaleDown }}
   strategy:
     canary:
       canaryService: {{ include "demo-web.fullname" . }}-preview

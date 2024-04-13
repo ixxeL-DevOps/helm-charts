@@ -110,6 +110,8 @@ service:
 
 rollouts:
   enabled: false
+  workloadRef:
+    scaleDown: progressively
 
 ingress:
   enabled: false
