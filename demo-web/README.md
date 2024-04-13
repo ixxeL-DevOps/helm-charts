@@ -1,6 +1,6 @@
 # demo-web
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
+![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -27,6 +27,13 @@ A Helm chart for Kubernetes
 | deployAnnotations | object | `{}` |  |
 | deploymentStrategy | object | `{}` |  |
 | fullnameOverride | string | `""` |  |
+| gatewayApi.enabled | bool | `false` |  |
+| gatewayApi.gateway.name | string | `""` |  |
+| gatewayApi.gateway.namespace | string | `""` |  |
+| gatewayApi.gateway.section | string | `""` |  |
+| gatewayApi.httpRoute.hosts[0] | string | `"example.com"` |  |
+| gatewayApi.httpRoute.path | string | `"/"` |  |
+| gatewayApi.httpRoute.pathType | string | `"PathPrefix"` |  |
 | global | object | `{"deployAnnotations":{},"deploymentStrategy":{},"image":{"imagePullPolicy":"","registry":""},"imagePullSecrets":"","nodeSelector":{},"podLabels":{},"priorityClassName":"","revisionHistoryLimit":10,"stakater":{"auto":false,"enabled":false},"tolerations":[]}` | values shared globally between chart and subcharts (use this part is you include subchart which need information from the parent chart) |
 | global.deployAnnotations | object | `{}` | Annotations for the all deployed Deployments |
 | global.deploymentStrategy | object | `{}` | Deployment strategy for the all deployed Deployments |
@@ -49,7 +56,7 @@ A Helm chart for Kubernetes
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `"nginx"` |  |
-| ingress.enabled | bool | `true` |  |
+| ingress.enabled | bool | `false` |  |
 | ingress.hosts[0].host | string | `"chart-example.local"` |  |
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"Prefix"` |  |
