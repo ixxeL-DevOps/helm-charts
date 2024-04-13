@@ -22,11 +22,22 @@ spec:
   {{- end }}
   rules:
   - backendRefs:
-      - group: ''
-        kind: Service
-        name: {{ include "demo-web.fullname" . }}
-        port: {{ .Values.service.port }}
-        weight: 100
+  {{- if .Values.rollouts.enabled }}
+    - group: ''
+      name: {{ include "demo-web.fullname" . }}-stable
+      kind: Service
+      port: {{ .Values.service.port }}
+    - group: ''
+      name: {{ include "demo-web.fullname" . }}-preview
+      kind: Service
+      port: {{ .Values.service.port }}
+  {{- else }}
+    - group: ''
+      kind: Service
+      name: {{ include "demo-web.fullname" . }}
+      port: {{ .Values.service.port }}
+      weight: 100
+  {{- end }}
     matches:
       - path:
           type: {{ .Values.gatewayApi.httpRoute.pathType }}
