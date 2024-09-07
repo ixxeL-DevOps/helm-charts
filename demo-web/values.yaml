@@ -41,6 +41,7 @@ test:
 
 replicaCount: 1
 
+# trigger auto
 image:
   registry: docker.io
   repository: ixxel/demo-web
