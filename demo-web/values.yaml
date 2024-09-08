@@ -32,7 +32,7 @@ global:
     # -- enabled auto mode
     auto: false
 
-# Default values for demo-web.
+# Default values for demo-web. 
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
