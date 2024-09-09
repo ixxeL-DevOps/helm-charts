@@ -1,4 +1,4 @@
-# -- values shared globally between chart and subcharts (use this part is you include subchart which need information from the parent chart)  
+# -- values shared globally between chart and subcharts (use this part is you include subchart which need information from the parent chart)   
 global:
   imagePullSecrets: ""
   # -- set global image parameters
