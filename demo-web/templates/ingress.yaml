@@ -3,7 +3,7 @@
 {{- $svcPort := .Values.service.port -}}
 apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
 kind: Ingress
-metadata:
+metadata: 
   name: {{ $fullName }}
   namespace: {{ .Release.Namespace | quote }}
   labels: {{- include "common.labels.standard" (dict "customLabels" .Values.commonLabels "context" $ ) | nindent 4 }}
